@@ -1,0 +1,10 @@
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    redisson:
+      config: classpath:redisson.yaml
+  cache:
+    type: redis
+server:
+  port: 8081
