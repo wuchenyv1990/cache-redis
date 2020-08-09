@@ -1,9 +1,10 @@
 buildscript {
     ext {
+        commonsPoolVersion='2.8.0'
         lombokVersion='4.1.6'
         redissonVersion='3.12.3'
         springDependenciesVersion='1.0.8.RELEASE'
-        springbootVersion='2.2.5.RELEASE'
+        springbootVersion='2.3.1.RELEASE'
     }
     repositories {
         mavenLocal()
@@ -14,7 +15,7 @@ buildscript {
 plugins {
     id 'java'
     id("io.spring.dependency-management") version "${springDependenciesVersion}"
-    id "io.freefair.lombok" version "${lombokVersion}"
+    id("io.freefair.lombok") version "${lombokVersion}"
     id("org.springframework.boot") version "${springbootVersion}"
 }
 
@@ -28,6 +29,8 @@ repositories {
     mavenCentral()
 }
 dependencies {
+    //connection pool
+    implementation('org.apache.commons:commons-pool2')
     implementation('org.springframework.boot:spring-boot-starter-data-redis')
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation("org.redisson:redisson-spring-boot-starter:${redissonVersion}")

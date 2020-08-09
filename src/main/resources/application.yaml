@@ -4,6 +4,9 @@ spring:
     port: 6379
     redisson:
       config: classpath:redisson.yaml
+    lettuce:
+      pool:
+        min-idle: 0 # 配置pool，添加commons-pool2依赖，开启池化
   cache:
     type: redis
 server:
